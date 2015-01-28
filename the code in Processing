@@ -1,0 +1,53 @@
+Gate gate = new Gate( 150,150,"orGate");
+
+void setup() {
+  size(640, 360);
+}
+
+void draw() {
+  background(155);
+  fill(200);
+  stroke(200);
+  rect(0,height-height/5,width,height);
+  gate.drawGate();
+}
+
+class Gate{
+  String type;
+  HashMap<String,Integer> imputMap = new HashMap<String,Integer>();
+  int outputKey; 
+  int x, y;
+ Gate(int x_, int y_, String type_){
+  type = type_;
+  x = x_;
+  y = y_;
+/*  switch(type){
+   case 'OrGate':
+   imputNumber = 2; 
+   break;
+      case 'AndGate':
+   imputNumber = 2; 
+   break;
+   case 'Not':
+   imputNumber = 1; 
+   break;
+  } */
+ } 
+ 
+ void drawGate(){
+   fill(0);
+   stroke(0);
+   pushMatrix();
+   ellipseMode(CORNERS);
+   translate(x,y);
+   ellipse(10,0,30,20);
+   rect(0,0,20,20);
+   if(type == "orGate"){
+    fill(155);
+    stroke(155);
+    ellipse(-10,0,10,20); 
+   }
+     popMatrix();
+ }
+  
+}
